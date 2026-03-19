@@ -117,4 +117,4 @@ Model improvements are incremental unless better signal/features are added.
 
 ## License
 
-For educational and portfolio use.
+This project is licensed under the MIT License.
