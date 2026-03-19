@@ -48,7 +48,9 @@ jobs:
           PY
 
       - name: Run preprocessing
-        run: python src/data_preprocessing.py
+        working-directory: src
+        run: python data_preprocessing.py
 
       - name: Run baseline training
-        run: python src/train_baseline.py
+        working-directory: src
+        run: python train_baseline.py
