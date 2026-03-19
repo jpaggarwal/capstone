@@ -22,6 +22,31 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Create mock dataset for CI
+        run: |
+          mkdir -p data/raw
+          python - <<'PY'
+          import pandas as pd
+          import numpy as np
+
+          np.random.seed(42)
+          n = 200
+
+          df = pd.DataFrame({
+              "Engine rpm": np.random.randint(600, 2200, n),
+              "Lub oil pressure": np.random.uniform(1.0, 6.0, n),
+              "Fuel pressure": np.random.uniform(1.0, 20.0, n),
+              "Coolant pressure": np.random.uniform(1.0, 7.0, n),
+              "lub oil temp": np.random.uniform(70.0, 90.0, n),
+              "Coolant temp": np.random.uniform(65.0, 95.0, n),
+          })
+
+          df["Engine Condition"] = np.random.choice([0, 1], size=n, p=[0.4, 0.6])
+
+          df.to_csv("data/raw/engine_data.csv", index=False)
+          print("Created mock data/raw/engine_data.csv for CI")
+          PY
+
       - name: Run preprocessing
         run: python src/data_preprocessing.py
 
