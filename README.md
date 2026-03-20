@@ -26,34 +26,44 @@ We compared Logistic Regression, Random Forest, XGBoost, and tuned XGBoost, with
 
 ---
 
-## Project Structure
 ```text
 mlops-project/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── data/
 │   ├── raw/
+│   │   ├── .gitkeep
 │   │   └── engine_data.csv
-│   └── processed/                  (generated after preprocessing)
+│   └── processed/                     (generated after preprocessing)
+│       ├── .gitkeep
 │       ├── X_train.csv
 │       ├── X_test.csv
 │       ├── y_train.csv
 │       ├── y_test.csv
 │       └── scaler.pkl
-├── models/                         (generated after training/tuning)
+├── models/                            (generated after model training/tuning)
 │   ├── baseline_lr_model.pkl
 │   ├── random_forest_model.pkl
 │   ├── xgboost_model.pkl
 │   └── tuned_xgboost_model.pkl
 ├── notebooks/
 │   └── eda2.ipynb
+├── predictions/                       (generated after batch deployment run)
+│   ├── .gitkeep
+│   └── predictions.csv
+├── reports/                           (reserved for report artifacts/exports)
 ├── src/
 │   ├── data_preprocessing.py
+│   ├── predict_batch.py
 │   ├── train_baseline.py
 │   ├── train_random_forest.py
 │   ├── train_xgboost.py
 │   └── tune_xgboost.py
-├── requirements.txt
+├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+└── requirements.txt
 ```
 ---
 
