@@ -57,6 +57,7 @@ mlops-project/
 │   ├── data_preprocessing.py
 │   ├── predict_batch.py
 │   ├── Extras
+│   ├── train_baseline.py
 │   └── tune_xgboost.py
 ├── .gitignore
 ├── LICENSE
